@@ -13,10 +13,4 @@ public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class);
     }
-
-//    @Bean
-//    public IdWorker idWorker(){
-//        return new IdWorker(1,1);
-//    }
-
 }
