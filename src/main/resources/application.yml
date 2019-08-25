@@ -11,3 +11,8 @@ spring:
   jpa:
     database: mysql
     show-sql: true
+  data:
+    mongodb:
+      database: mywork
+      host: 127.0.0.1
+      port: 27017

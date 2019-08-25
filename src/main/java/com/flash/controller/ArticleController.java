@@ -23,7 +23,6 @@ public class ArticleController {
      */
     @RequestMapping(method = RequestMethod.POST)
     public Result saveArticle(@RequestBody Article article){
-        System.out.println(article.toString());
         articleService.saveArticle(article);
         return new Result(true, StatusCode.OK,"保存成功");
     }
