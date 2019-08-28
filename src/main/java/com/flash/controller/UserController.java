@@ -1,11 +1,10 @@
 package com.flash.controller;
 
-import com.flash.enity.Result;
-import com.flash.enity.StatusCode;
-import com.flash.enity.User;
+import com.flash.enity.*;
 import com.flash.service.BaseService;
 import com.flash.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -97,4 +96,14 @@ public class UserController {
         return new Result(true, StatusCode.OK,"登陆成功",map);
     }
 
+
+    /**
+     * 返回文章列表
+
+     */
+    @RequestMapping(value = "/searchUserList/{page}/{size}",method = RequestMethod.GET)
+    public Result returnArticleList(@PathVariable("page") int page,@PathVariable("size") int size){
+        Page<User> pageData = userService.findAllUser(page,size);
+        return new Result(true, StatusCode.OK,"查询成功",new PageResult<User>(pageData.getTotalElements(),pageData.getContent()));
+    }
 }

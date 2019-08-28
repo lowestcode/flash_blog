@@ -67,7 +67,6 @@ public class ArticleController {
         article.setId(articleId);
         articleService.updateArticle(article);
         return new Result(true, StatusCode.OK,"更新文章成功");
-
     }
 
 }
